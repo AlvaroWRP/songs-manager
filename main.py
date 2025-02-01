@@ -3,6 +3,7 @@ import shutil
 
 from mutagen.mp3 import EasyMP3
 
+
 # This function will iterate through all files recognized as MP3 in the specified path
 # and will rename their metadata title to the same name as the file itself.
 # It will also return a count of every file so it can be used in the "move_files_to_usb" function
@@ -20,6 +21,7 @@ def rename_songs(songs_path):
     _, _, files = next(os.walk(songs_path))  # Returns a list of all files in the path.
     return len(files)
 
+
 # This function is responsible for deleting all songs folders, along with all of their contents,
 # in the specified path. The if condition is used to prevent the deletion of unrelated folders,
 # as well as the System Volume Information, which is a system folder.
@@ -30,6 +32,7 @@ def clean_usb_songs_content(usb_path):
         if folder_path.startswith(f'{usb_path}Songs'):
             print(f'Deleting {folder}...')
             shutil.rmtree(folder_path)
+
 
 # This function is responsible for creating the songs folders and moving all the files from the
 # source path to the destination path, which are the new usb songs folders.
@@ -61,11 +64,12 @@ def move_files_to_usb(usb_path, files_counter, songs_path):
             total_songs_counter += 1
 
             print(
-                f'Total files: {files_counter} | ' \
-                f'Files moved: {total_songs_counter} | ' \
-                f'Files left: {files_counter - total_songs_counter} | ' \
+                f'Total files: {files_counter} | '
+                f'Files moved: {total_songs_counter} | '
+                f'Files left: {files_counter - total_songs_counter} | '
                 f'Progress: {((total_songs_counter / files_counter) * 100):.2f}%'
             )
+
 
 def organize_files(usb_path, files_counter, songs_path):
     print('Starting folders deletion...')
@@ -73,6 +77,7 @@ def organize_files(usb_path, files_counter, songs_path):
     print('Folders deleted\n')
 
     move_files_to_usb(usb_path, files_counter, songs_path)
+
 
 SONGS_PATH = r'C:\Users\Álvaro\Desktop\music'  # The path where your songs folder are located.
 USB_PATH = r'E:'  # The path where your USB flash drive is located.
