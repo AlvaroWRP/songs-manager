@@ -91,7 +91,7 @@ def organize_files(usb_path, files_counter, songs_path):
     move_files_to_usb(usb_path, files_counter, songs_path)
 
 
-SONGS_PATH = r"C:\Users\Álvaro\Desktop\music"  # The path where your songs folder are located.
+SONGS_PATH = r"C:\Users\alvaro\Desktop\Music"  # The path where your songs folder are located.
 USB_PATH = r"E:"  # The path where your USB flash drive is located.
 
 print("Renaming songs...")
